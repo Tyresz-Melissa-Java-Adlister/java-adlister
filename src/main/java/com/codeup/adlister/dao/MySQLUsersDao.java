@@ -1,8 +1,6 @@
 package com.codeup.adlister.dao;
-
 import com.codeup.adlister.models.User;
 import com.codeup.adlister.util.Password;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,8 +9,8 @@ import java.sql.SQLException;
 public class MySQLUsersDao implements Users {
     private final Connection connection;
 
-    public MySQLUsersDao(Connection connection) {
-        this.connection = connection;
+    public MySQLUsersDao(Config config) {
+
     }
 
     @Override
