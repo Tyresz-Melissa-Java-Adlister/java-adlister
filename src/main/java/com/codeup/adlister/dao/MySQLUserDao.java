@@ -1,8 +1,8 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.User;
-import models.User;
 
+import javax.servlet.jsp.jstl.core.Config;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
