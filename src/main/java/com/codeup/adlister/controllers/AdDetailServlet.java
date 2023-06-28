@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "controllers.AdDetailServlet", urlPatterns = "/ad/detail")
+@WebServlet(name = "AdDetailServlet", urlPatterns = "/ad/details")
 public class AdDetailServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String adIdParam = request.getParameter("id");
@@ -29,7 +29,7 @@ public class AdDetailServlet extends HttpServlet {
                 return;
             }
             request.setAttribute("ad", ad);
-            request.getRequestDispatcher("/WEB-INF/detail.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/ads/details.jsp").forward(request, response);
         } catch (NumberFormatException e) {
             // Redirect to the ads index page if the ad ID is not a valid long value
             response.sendRedirect("/ads");
