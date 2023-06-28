@@ -11,14 +11,11 @@
 
 <div class="container">
     <h1>Here Are all the ads!</h1>
-    <div class="col-12">
-        <input class="form-control me-2" type="search" placeholder="Your Ad search starts here!" aria-label="Search">
-    </div>
 
     <c:forEach var="ad" items="${ads}">
         <div class="card">
             <div class="card-title">
-                <h2>${ad.title}</h2>
+                <h2><a href="/ad/detail?id=${ad.id}">${ad.title}</a></h2>
             </div>
             <div class="card-text">
                 <p>${ad.description}</p>
