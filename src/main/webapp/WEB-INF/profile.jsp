@@ -6,7 +6,6 @@
         <jsp:param name="title" value="Your Profile" />
     </jsp:include>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" integrity="sha384-r67glSXeyys4Mu2J2GyLb2QJL+/cPZIwDL8y9f70wInq9CwdyST82bod9OHu3DDi" crossorigin="anonymous" />
-
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
@@ -24,28 +23,32 @@
             <p>${ad.description}</p>
         </div>
         <div class="card-footer">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateModal${ad.id}">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateModal-${ad.id}">
                 Update
             </button>
 
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal${ad.id}">
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal-${ad.id}">
                 Delete
             </button>
         </div>
     </div>
     <div class="col-1"></div>
 
-
-    <div class="modal fade" id="updateModal${ad.id}" tabindex="-1" aria-labelledby="updateModalLabel${ad.id}" aria-hidden="true">
+    <div class="modal fade" id="updateModal-${ad.id}" tabindex="-1" aria-labelledby="updateModalLabel-${ad.id}" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="updateModalLabel${ad.id}">Update Ad: ${ad.title}</h5>
+                    <h5 class="modal-title" id="updateModalLabel-${ad.id}">Update Ad: ${ad.title}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form action="/ad/update" method="POST">
                         <input type="hidden" name="adId" value="${ad.id}" />
+                        <c:if test="${param.error ne null}">
+                            <div class="alert alert-danger">
+                                    ${param.error}
+                            </div>
+                        </c:if>
                         <div class="mb-3">
                             <label for="updateTitle" class="form-label">Title:</label>
                             <input type="text" class="form-control" id="updateTitle" name="updateTitle" value="${ad.title}" />
@@ -61,12 +64,11 @@
         </div>
     </div>
 
-
-    <div class="modal fade" id="deleteModal${ad.id}" tabindex="-1" aria-labelledby="deleteModalLabel${ad.id}" aria-hidden="true">
+    <div class="modal fade" id="deleteModal-${ad.id}" tabindex="-1" aria-labelledby="deleteModalLabel-${ad.id}" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="deleteModalLabel${ad.id}">Delete Ad: ${ad.title}</h5>
+                    <h5 class="modal-title" id="deleteModalLabel-${ad.id}">Delete Ad: ${ad.title}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">

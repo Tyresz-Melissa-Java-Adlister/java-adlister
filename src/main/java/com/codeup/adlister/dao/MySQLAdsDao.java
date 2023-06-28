@@ -125,5 +125,15 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    @Override
+    public Object viewAd(long id) {
+        return null;
+    }
+
+    @Override
+    public Object searchForAds(String searchedAd) {
+        return null;
+    }
+
 
 }

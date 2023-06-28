@@ -19,10 +19,14 @@ public class UpdateAdServlet extends HttpServlet {
         // Fetch the ad object from the database using the ad ID
         Ad ad = DaoFactory.getAdsDao().findById(adId);
 
-        // Pass the ad object to the update JSP page
+        // Retrieve the error message from the request attribute
+        String errorMessage = (String) request.getAttribute("error");
+
+        // Pass the ad object and error message to the profile JSP page
         request.setAttribute("ad", ad);
-        request.getRequestDispatcher("/WEB-INF/update.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
     }
+
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         // Retrieve the updated ad details from the form
@@ -32,6 +36,14 @@ public class UpdateAdServlet extends HttpServlet {
 
         // Fetch the ad object from the database using the ad ID
         Ad ad = DaoFactory.getAdsDao().findById(adId);
+
+        // Validate the input fields
+        if (newTitle.isEmpty() || newDescription.isEmpty()) {
+            // Handle the case when either the title or description is empty
+            // For example, you can redirect back to the update ad page with an error message
+            response.sendRedirect("/profile");
+            return;
+        }
 
         // Update the ad details
         ad.setTitle(newTitle);
@@ -43,4 +55,5 @@ public class UpdateAdServlet extends HttpServlet {
         // Redirect back to the profile page
         response.sendRedirect("/profile");
     }
+
 }

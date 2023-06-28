@@ -17,4 +17,8 @@ public interface Ads {
     void update(Ad ad);
 
     Ad findById(long adId);
+
+    Object viewAd(long id);
+
+    Object searchForAds(String searchedAd);
 }
