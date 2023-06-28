@@ -18,7 +18,6 @@ public interface Ads {
 
     Ad findById(long adId);
 
-    Object viewAd(long id);
 
-    Object searchForAds(String searchedAd);
+    List<Ad> searchForAds(String searchedAd);
 }
