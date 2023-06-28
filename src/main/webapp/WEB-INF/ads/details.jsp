@@ -17,7 +17,7 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 <div class="container">
-    <h1>Ad Detail</h1>
+    <h1>Ad Details</h1>
     <div class="card">
         <div class="card-title">
             <h2>${ad.title}</h2>
