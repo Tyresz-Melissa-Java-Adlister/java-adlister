@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -8,6 +9,11 @@
 <body>
     <div class="container">
         <h1>Create a new Ad</h1>
+        <c:if test="${param.error ne null}">
+            <div class="alert alert-danger">
+                    ${param.error}
+            </div>
+        </c:if>
         <form action="/ads/create" method="post">
             <div class="form-group">
                 <label for="title">Title</label>
