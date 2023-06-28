@@ -39,7 +39,6 @@ public class ListAdsDao implements Ads {
 
     @Override
     public void update(Ad ad) {
-
     }
 
     @Override
@@ -47,15 +46,13 @@ public class ListAdsDao implements Ads {
         return null;
     }
 
+
+
     @Override
-    public Object viewAd(long id) {
+    public List<Ad> searchForAds(String searchedAd) {
         return null;
     }
 
-    @Override
-    public Object searchForAds(String searchedAd) {
-        return null;
-    }
 
     private List<Ad> generateAds() {
         List<Ad> ads = new ArrayList<>();
